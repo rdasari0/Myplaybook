@@ -1,7 +1,7 @@
 ---
 - name: use the playbook for root update
   hosts: asnsws06.sg.ibm.com
-  vars_files
+  vars_files:
     - vault.yml
   tasks:
      - name: update the root password
