@@ -1,8 +1,7 @@
 ---
 - name: use the playbook for root update
   hosts: asnsws06.sg.ibm.com
-  connection: local
-  vars_files:
+  vars_files
     - vault.yml
   tasks:
      - name: update the root password
@@ -16,4 +15,5 @@
        slack:
          token: T073LUXEU/B0234N6R78F/1tidTakmoE9EdpPGLg9TiMIj
          msg: ' {{inventory_hostname }} root password update is completed successfully '
+         delegate_to : asnsws06.sg.ibm.com
          become: false
