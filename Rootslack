@@ -1,0 +1,20 @@
+---
+- name: use the playbook for root update
+  hosts: asnsws06.sg.ibm.com
+  connection: local
+  vars_files:
+    - vault.yml
+  tasks:
+     - name: update the root password
+       user: 
+         name: root
+         password: "{[aptreasury | password_hash('sha512')}}"
+         update_password: always
+         system: yes
+       when: inventory_hostname in groups ['patches']
+     
+      - name: notifications  of root password via slack
+        slack:
+          token: T073LUXEU/B0234N6R78F/1tidTakmoE9EdpPGLg9TiMIj
+          msg: ' {{inventory_hostname }} root password update is completed successfully '
+          become: false
