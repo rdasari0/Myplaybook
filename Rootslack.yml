@@ -1,6 +1,9 @@
 ---
 - name: use the playbook for root update
   hosts: 9.187.12.150
+  user: anstadm
+  become: yes
+  become_method: sudo
   vars_files:
     - vault.yml
   tasks:
