@@ -1,0 +1,35 @@
+---
+- name: use the paybook  for creation of user
+  hosts: all
+  become: true
+  vars_files: 
+    - vault.yml
+    - userlist.yml
+  tasks:
+     - name: ensure apsettle  group is present
+       group:
+         name: apsettle
+         state: present
+     - name: ensure the user is present in the system
+       user:   
+         name: "{{item.username}}"
+         state: present
+         password: "{{aptreasury | password_hash('sha512')}}"
+         shell: /bin/bash
+         comment: "{{item.comment}}"
+         update_password: on_create
+         group: apsettle
+       loop: "{{users}}"
+       when: inventory_hostname in groups['test'] and item.uid == 'first'
+      
+     - name: ensure the user is present in the system                    
+       user:                                                             
+         name: "{{item.username}}"                                       
+         state: present                                                  
+         password: "{{aptreasury | password_hash('sha512')}}"            
+         shell: /bin/bash                                                
+         comment: "{{item.comment}}"                                     
+         update_password: on_create                                      
+         group: apsettle                                                 
+       loop: "{{users}}"                                                 
+       when: inventory_hostname in groups['test'] and item.uid == 'second'

@@ -1,0 +1,8 @@
+users:
+  - username: pk
+    uid: first
+    comment: pk@in.ibm.com
+
+  - username: MB
+    uid: second
+    comment: MB@in.ibm.com
