@@ -1,6 +1,6 @@
 ---
 - name: use the playbook for root update
-  hosts: b23leilapp02.au.ibm.com
+  hosts: igasyslog.cn.ibm.com
   user: anstadm
   become: yes
   become_method: sudo
@@ -18,5 +18,5 @@
        slack:
          token: T073LUXEU/B0234N6R78F/1tidTakmoE9EdpPGLg9TiMIj
          msg: ' {{inventory_hostname }} root password update is completed successfully '
-         delegate_to : b23leilapp02.au.ibm.com
+         delegate_to : igasyslog.cn.ibm.com
          become: false
