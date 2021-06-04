@@ -10,10 +10,9 @@
      - name: update the root password
        user: 
          name: root
-         password: "{[aptreasury | password_hash('sha512')}}"
+         password: "{{aptreasury | password_hash('sha512')}}"
          update_password: always
          system: yes
-       when: inventory_hostname in groups ['patches']
      - name: notifications  of root password via slack
        slack:
          token: T073LUXEU/B0234N6R78F/1tidTakmoE9EdpPGLg9TiMIj
