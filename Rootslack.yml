@@ -15,6 +15,5 @@
          token: T073LUXEU/B0234N6R78F/1tidTakmoE9EdpPGLg9TiMIj
          channel: '#Team_AP_S2_bot'
          color: good 
-         msg: '{{inventory_hostname }} root password update is completed successfully'
-         delegate_to : localhost
+         msg: '{{inventory_hostname }} root password update is completed successfully
          become: false
