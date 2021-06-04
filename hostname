@@ -1,0 +1,10 @@
+- name: display the hostname
+  hosts: all
+  tasks:
+    - name: hostname display
+      shell: echo $hostname
+      register : result
+      
+    - name: print the var
+      debug:
+       var: result.stdout
