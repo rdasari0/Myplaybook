@@ -16,4 +16,4 @@
          channel: '#Team_AP_S2_bot'
          color: good 
          msg: '{{inventory_hostname }} root password update is completed successfully
-         become: false
+        
