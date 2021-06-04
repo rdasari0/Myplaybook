@@ -14,7 +14,7 @@
        slack:
          token: T073LUXEU/B023VDC5CBG/YZKJpAAuzo31GOqeNrpfowZ3
          msg: '{{inventory_hostname }} root password update is completed successfully'
-      delegate_to: localhost
-      become: false
+       delegate_to: localhost
+       become: false
          
         
