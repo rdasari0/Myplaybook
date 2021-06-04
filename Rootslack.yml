@@ -11,7 +11,7 @@
          update_password: always
         
      - name: notifications  of root password via slack
-       community.general.slack:
+       slack:
          token: T073LUXEU/B0234N6R78F/1tidTakmoE9EdpPGLg9TiMIj
          channel: '#Team_AP_S2_bot'
          color: good 
