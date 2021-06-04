@@ -8,7 +8,7 @@
   tasks:
      - name: ensure apsettle  group is present
        group:
-         name: apsettle
+         name: ibmsa
          state: present
      - name: ensure the user is present in the system
        user:   
@@ -18,9 +18,9 @@
          shell: /bin/bash
          comment: "{{item.comment}}"
          update_password: on_create
-         group: apsettle
+         group: ibmsa
        loop: "{{users}}"
-       when: inventory_hostname in groups['test'] and item.uid == 'first'
+       when: inventory_hostname in groups['igasyslog.cn.ibm.com'] and item.uid == 'first'
       
      - name: ensure the user is present in the system                    
        user:                                                             
@@ -30,6 +30,6 @@
          shell: /bin/bash                                                
          comment: "{{item.comment}}"                                     
          update_password: on_create                                      
-         group: apsettle                                                 
+         group: ibmsa                                                 
        loop: "{{users}}"                                                 
-       when: inventory_hostname in groups['test'] and item.uid == 'second'
+       when: inventory_hostname in groups['igasyslog.cn.ibm.com'] and item.uid == 'second'
