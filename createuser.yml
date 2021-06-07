@@ -1,6 +1,6 @@
 ---
 - name: use the paybook  for creation of user
-  hosts: all
+  hosts: 9.181.2.111
   become: true
   vars_files: 
     - vault.yml
