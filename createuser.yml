@@ -20,7 +20,7 @@
          update_password: on_create
          group: ibmsa
        loop: "{{users}}"
-       when: inventory_hostname in groups['igasyslog.cn.ibm.com'] and item.uid == 'first'
+       when: item.uid == 'first'
       
      - name: ensure the user is present in the system                    
        user:                                                             
@@ -32,4 +32,4 @@
          update_password: on_create                                      
          group: ibmsa                                                 
        loop: "{{users}}"                                                 
-       when: inventory_hostname in groups['igasyslog.cn.ibm.com'] and item.uid == 'second'
+       when: item.uid == 'second'
