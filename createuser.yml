@@ -1,8 +1,6 @@
 ---
 - name: use the paybook  for creation of user
   hosts: 9.181.2.111
-  become: true
-  sudo: yes
   vars_files: 
     - vault.yml
     - userlist.yml
